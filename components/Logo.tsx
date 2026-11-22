@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
 
-/** Logo bicolore façon « jeune|afrique » : prénom en noir, nom en couleur d'accent. */
+/** Logo bicolore façon « jeune|afrique » : « kita » en couleur du texte, « blog » en accent. */
 export function Logo() {
-  const [prenom, ...reste] = site.nom.split(" ");
+  const [debut, fin] = site.logo;
   return (
     <Link href="/" className="logo" aria-label={`${site.nom} — accueil`}>
-      {prenom.toLowerCase()}
-      <span>{reste.join("").toLowerCase()}</span>
+      {debut}
+      <span>{fin}</span>
     </Link>
   );
 }

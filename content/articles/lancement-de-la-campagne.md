@@ -2,6 +2,7 @@
 titre: "« Notre commune mérite mieux » : Prénom Nom lance officiellement sa campagne"
 chapo: "Devant plusieurs centaines de sympathisants, la candidate a présenté les trois axes de son projet : emploi des jeunes, accès à l'eau et transparence de la gestion locale."
 date: 2026-11-20
+modifie: 2026-11-22
 rubrique: "Vie politique"
 etiquette: "À la une"
 legende: "Lors du meeting de lancement, samedi 15 novembre."

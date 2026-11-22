@@ -12,8 +12,8 @@ export default function APropos() {
       </header>
       <div className="prose">
         <p>
-          Présentez ici le parcours, les valeurs et l’engagement de {site.nom} : origines,
-          formation, expériences, et ce qui motive son action publique.
+          {site.nom} décrypte la vie politique : actualités, analyses, reportages de terrain
+          et prises de position. Présentez ici l’équipe et la ligne éditoriale.
         </p>
         <h2>Nos priorités</h2>
         <ul>

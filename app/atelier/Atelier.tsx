@@ -7,8 +7,9 @@ import { site } from "@/lib/site";
 import { slugify } from "@/lib/slug";
 
 const CLE_MDP = "atelier-mdp";
+const CLE_AUTEUR = "atelier-auteur";
 
-function fichierMarkdown(r: ResultatClarifier, titre: string, image: string) {
+function fichierMarkdown(r: ResultatClarifier, titre: string, image: string, auteur: string) {
   const date = new Date().toISOString().slice(0, 10);
   const echapper = (s: string) => JSON.stringify(s);
   return [
@@ -19,7 +20,7 @@ function fichierMarkdown(r: ResultatClarifier, titre: string, image: string) {
     `rubrique: ${echapper(r.rubrique)}`,
     r.etiquette ? `etiquette: ${echapper(r.etiquette)}` : null,
     image ? `image: ${echapper(image)}` : `# image: "/images/${slugify(titre).slice(0, 40)}.jpg"`,
-    `auteur: ${echapper(site.nom)}`,
+    `auteur: ${echapper(auteur || "La rédaction")}`,
     "une: false",
     "---",
     "",
@@ -32,6 +33,7 @@ function fichierMarkdown(r: ResultatClarifier, titre: string, image: string) {
 
 export function Atelier() {
   const [motDePasse, setMotDePasse] = useState("");
+  const [auteur, setAuteur] = useState("");
   const [texte, setTexte] = useState("");
   const [rubrique, setRubrique] = useState("");
   const [consigne, setConsigne] = useState("");
@@ -43,6 +45,7 @@ export function Atelier() {
 
   useEffect(() => {
     try { setMotDePasse(sessionStorage.getItem(CLE_MDP) ?? ""); } catch {}
+    try { setAuteur(localStorage.getItem(CLE_AUTEUR) ?? ""); } catch {}
   }, []);
 
   async function clarifier(e: React.FormEvent) {
@@ -51,6 +54,7 @@ export function Atelier() {
     setErreur("");
     try {
       try { sessionStorage.setItem(CLE_MDP, motDePasse); } catch {}
+      try { localStorage.setItem(CLE_AUTEUR, auteur); } catch {}
       const rep = await fetch("/api/clarifier", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -67,7 +71,7 @@ export function Atelier() {
     }
   }
 
-  const md = useMemo(() => (resultat ? fichierMarkdown(resultat, titre, image) : ""), [resultat, titre, image]);
+  const md = useMemo(() => (resultat ? fichierMarkdown(resultat, titre, image, auteur) : ""), [resultat, titre, image, auteur]);
   const nomFichier = `${slugify(titre).slice(0, 60) || "article"}.md`;
 
   function telecharger() {
@@ -99,6 +103,10 @@ export function Atelier() {
               {site.rubriques.map((r) => <option key={r}>{r}</option>)}
             </select>
           </div>
+        </div>
+        <div className="champ">
+          <label htmlFor="auteur">Nom de l’auteur (affiché sur l’article)</label>
+          <input id="auteur" value={auteur} onChange={(e) => setAuteur(e.target.value)} placeholder="Ex. : Awa Koné" autoComplete="name" />
         </div>
         <div className="champ">
           <label htmlFor="texte">Texte brut</label>

@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 
-export function Partage({ titre, url }: { titre: string; url: string }) {
+type Props = { titre: string; url: string; colonne?: boolean };
+
+export function Partage({ titre, url, colonne }: Props) {
   const [copie, setCopie] = useState(false);
   const t = encodeURIComponent(titre);
   const u = encodeURIComponent(url);
   return (
-    <div className="partage">
+    <div className={colonne ? "partage partage--colonne" : "partage"}>
       <span>Partager</span>
       <a href={`https://wa.me/?text=${t}%20${u}`} target="_blank" rel="noopener">WhatsApp</a>
       <a href={`https://www.facebook.com/sharer/sharer.php?u=${u}`} target="_blank" rel="noopener">Facebook</a>

@@ -290,9 +290,72 @@ button { font: inherit; cursor: pointer; }
 }
 
 .article { padding: 32px 0 24px; }
+.article__grille {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 var(--gouttiere);
+}
 .article__entete, .prose, .article__pied { max-width: var(--lecture); margin-inline: auto; }
+.article__gauche, .article__droite { display: none; }
 .article__fil { display: flex; gap: 10px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
 .article__fil .etiquette { margin: 0; }
+
+/* Rails latéraux (ordinateur) */
+.rail { position: sticky; top: 100px; display: grid; gap: 28px; }
+.rail__libelle { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--gris); margin-bottom: 2px; }
+.rail__titre {
+  font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--encre); margin: 0 0 12px; padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent);
+}
+
+.auteur { display: flex; align-items: center; gap: 12px; padding-bottom: 22px; border-bottom: 1px solid var(--filet); }
+.auteur__avatar {
+  flex: none; display: grid; place-items: center;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--accent-doux); color: #1a1a1a;
+  font-weight: 700; font-size: 17px;
+}
+.auteur__nom { display: block; font-size: 16px; color: var(--encre); line-height: 1.3; }
+
+.dates { margin: 0; display: grid; gap: 16px; padding-bottom: 22px; border-bottom: 1px solid var(--filet); }
+.dates dd { margin: 0; font-size: 15px; color: var(--encre); }
+
+.rail .partage--colonne { flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 8px; margin: 0; padding: 0; border: 0; }
+.rail .partage--colonne span { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; margin: 0 0 2px; }
+.rail .partage--colonne a, .rail .partage--colonne button { text-align: left; padding: 9px 16px; }
+
+.sommaire ol { margin: 0; padding: 0; list-style: none; counter-reset: s; display: grid; gap: 10px; }
+.sommaire li { counter-increment: s; display: flex; gap: 10px; font-size: 15px; line-height: 1.4; }
+.sommaire li::before { content: counter(s, decimal-leading-zero); color: var(--accent); font-weight: 700; font-size: 13px; padding-top: 2px; }
+.sommaire a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.recents ul { margin: 0; padding: 0; list-style: none; }
+.recents li { padding: 12px 0; border-bottom: 1px solid var(--filet); }
+.recents li:first-child { padding-top: 0; }
+.recents a { display: block; font-family: var(--serif); font-size: 17px; line-height: 1.3; color: var(--encre); }
+.recents a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.recents span { display: block; margin-top: 4px; font-size: 13px; color: var(--gris); }
+
+/* ≥ 960 px : colonne gauche (auteur, dates) + texte */
+@media (min-width: 960px) {
+  .article__grille {
+    display: grid;
+    grid-template-columns: 210px minmax(0, var(--lecture));
+    gap: 56px;
+    justify-content: center;
+  }
+  .article__gauche { display: block; }
+  .article__meta { display: none !important; }
+  .article__entete, .prose, .article__pied { margin-inline: 0; }
+}
+/* ≥ 1240 px : + colonne droite (sommaire, récents) */
+@media (min-width: 1240px) {
+  .article__grille { grid-template-columns: 210px minmax(0, var(--lecture)) 250px; }
+  .article__droite { display: block; }
+}
+
 .article__titre {
   font-family: var(--serif);
   font-weight: 600;
@@ -317,10 +380,11 @@ button { font: inherit; cursor: pointer; }
 }
 .article__meta strong { color: var(--encre); font-weight: 600; }
 
-.article__figure { max-width: 960px; margin: 28px auto; }
-.article__figure figcaption { font-size: 14px; color: var(--gris); padding: 10px var(--gouttiere) 0; max-width: var(--lecture); margin: 0 auto; }
+.article__figure { margin: 28px 0; }
+.article__figure figcaption { font-size: 14px; color: var(--gris); padding-top: 10px; }
 @media (max-width: 720px) {
   .article__figure { margin-inline: calc(var(--gouttiere) * -1); }
+  .article__figure figcaption { padding-inline: var(--gouttiere); }
 }
 
 .prose {
@@ -339,6 +403,7 @@ button { font: inherit; cursor: pointer; }
   color: var(--encre);
   margin-top: 2em;
 }
+.prose h2 { scroll-margin-top: 96px; }
 .prose h3 { font-size: 1.05em; color: var(--encre); margin-top: 1.6em; }
 .prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 .prose blockquote {

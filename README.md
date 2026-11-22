@@ -1,4 +1,4 @@
-# Site politique — actualités & prises de position
+# KITABLOG — actualité politique
 
 Site éditorial simple, inspiré de la mise en page d'un magazine d'actualité : titres en serif,
 puces de rubriques, article à la une, liste avec vignettes, lecture confortable (colonne de 680 px,
