@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { articlesDeRubrique } from "@/lib/articles";
 import { CarteListe, CarteUne } from "@/components/Cartes";
@@ -29,6 +30,7 @@ export default async function Rubrique({ params }: Props) {
     <div className="conteneur">
       <section className="section">
         <h1 className="section__titre">{nom}</h1>
+        {site.descriptions[nom] && <p className="rubrique__intro">{site.descriptions[nom]}</p>}
         <Puces actif={slug} />
         {une ? (
           <>
@@ -38,7 +40,10 @@ export default async function Rubrique({ params }: Props) {
             </ul>
           </>
         ) : (
-          <p className="rubrique-lien">Aucun article dans cette rubrique pour le moment.</p>
+          <p className="vide">
+            Les premiers textes de cette rubrique arrivent bientôt. En attendant, lisez{" "}
+            <Link href="/articles/i-speak-politics">la présentation d’I Speak Politics</Link>.
+          </p>
         )}
       </section>
     </div>

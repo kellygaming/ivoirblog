@@ -1,32 +1,29 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import { pageMarkdown } from "@/lib/articles";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = { title: "À propos" };
+export const metadata: Metadata = { title: "À propos", description: site.description };
 
 export default function APropos() {
   return (
     <article className="conteneur article">
-      <header className="article__entete">
-        <h1 className="article__titre">À propos de {site.nom}</h1>
-        <p className="article__chapo">{site.slogan}.</p>
-      </header>
-      <div className="prose">
-        <p>
-          {site.nom} décrypte la vie politique : actualités, analyses, reportages de terrain
-          et prises de position. Présentez ici l’équipe et la ligne éditoriale.
-        </p>
-        <h2>Nos priorités</h2>
-        <ul>
-          <li>Priorité n°1 — à compléter</li>
-          <li>Priorité n°2 — à compléter</li>
-          <li>Priorité n°3 — à compléter</li>
-        </ul>
-        <h2 id="rejoindre">Rejoindre l’équipe</h2>
-        <p>
-          Vous souhaitez participer ? Écrivez-nous sur{" "}
-          <a href={site.reseaux.whatsapp} target="_blank" rel="noopener">WhatsApp</a> ou suivez-nous sur{" "}
-          <a href={site.reseaux.facebook} target="_blank" rel="noopener">Facebook</a>.
-        </p>
+      <div className="presentation">
+        <aside>
+          <div className="rail">
+            <div className="presentation__photo">
+              <Image src="/images/portrait-fondatrice.jpg" alt="La fondatrice d’I Speak Politics au pupitre" fill priority sizes="(max-width: 900px) 100vw, 320px" />
+            </div>
+          </div>
+        </aside>
+        <div>
+          <header className="article__entete">
+            <span className="etiquette">À propos</span>
+            <h1 className="article__titre">I Speak Politics</h1>
+            <p className="article__chapo">{site.slogan}.</p>
+          </header>
+          <div className="prose" dangerouslySetInnerHTML={{ __html: pageMarkdown("a-propos") }} />
+        </div>
       </div>
     </article>
   );

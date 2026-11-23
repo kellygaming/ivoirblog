@@ -29,7 +29,7 @@ const Sortie = z.object({
 
 export type ResultatClarifier = z.infer<typeof Sortie>;
 
-const SYSTEME = `Tu es secrétaire de rédaction d'un site d'actualité politique (style magazine panafricain sobre et exigeant), au service de ${site.nom}.
+const SYSTEME = `Tu es secrétaire de rédaction du blog de science politique ${site.nom} (I Speak Politics) : rigueur académique, ton accessible, ancré en Côte d'Ivoire et en Afrique.
 Ta mission : rendre un texte brut clair et agréable à lire, sans en changer le sens ni les positions.
 Règles :
 - Français soigné, phrases courtes, un paragraphe = une idée.

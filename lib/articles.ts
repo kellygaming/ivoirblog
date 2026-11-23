@@ -18,6 +18,7 @@ export type Article = {
   legende?: string;
   etiquette?: string; // badge rouge, ex. « Décryptage »
   auteur: string;
+  auteurPhoto?: string;
   une: boolean;
   minutes: number;
 };
@@ -65,6 +66,7 @@ function lireFichier(fichier: string): ArticleComplet {
     legende: data.legende ? String(data.legende) : undefined,
     etiquette: data.etiquette ? String(data.etiquette) : undefined,
     auteur: String(data.auteur ?? "La rédaction"),
+    auteurPhoto: data.auteurPhoto ? String(data.auteurPhoto) : undefined,
     une: Boolean(data.une),
     minutes: Math.max(1, Math.round(mots / 220)),
     html,
@@ -98,4 +100,13 @@ export function formaterDate(iso: string): string {
     month: "long",
     year: "numeric",
   });
+}
+
+/** Page éditoriale libre (ex. content/pages/a-propos.md). */
+export function pageMarkdown(nom: string): string {
+  const fichier = path.join(process.cwd(), "content", "pages", `${nom}.md`);
+  if (!fs.existsSync(fichier)) return "";
+  // Permet d'écrire « ## Titre {#ancre} » pour fixer l'ancre d'un intertitre
+  const html = marked.parse(matter(fs.readFileSync(fichier, "utf8")).content, { async: false });
+  return html.replace(/<h2>([\s\S]*?)\s*\{#([a-z0-9-]+)\}<\/h2>/g, '<h2 id="$2">$1</h2>');
 }

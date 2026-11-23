@@ -2,6 +2,7 @@ import Link from "next/link";
 import { tousLesArticles } from "@/lib/articles";
 import { CarteListe, CarteUne } from "@/components/Cartes";
 import { Puces } from "@/components/Puces";
+import { Espaces } from "@/components/Espaces";
 import { site } from "@/lib/site";
 
 export default function Accueil() {
@@ -35,9 +36,15 @@ export default function Accueil() {
       )}
 
       <div className="hachures" />
+      <section aria-labelledby="espaces">
+        <h2 id="espaces" className="section__titre section__titre--centre">Les quatre espaces</h2>
+        <Espaces />
+      </section>
+
+      <div className="hachures" />
       <section className="encart" aria-labelledby="lettre">
         <h2 id="lettre">La Lettre</h2>
-        <p>Recevez chaque semaine l’essentiel de nos actions et prises de position.</p>
+        <p>Recevez les nouvelles fiches, analyses et tribunes dès leur publication.</p>
         <div className="encart__actions">
           <a className="bouton" href={site.reseaux.whatsapp} target="_blank" rel="noopener">Rejoindre la chaîne WhatsApp</a>
           <Link className="bouton bouton--contour" href="/a-propos">En savoir plus</Link>

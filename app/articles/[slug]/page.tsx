@@ -63,7 +63,11 @@ export default async function PageArticle({ params }: Props) {
           <aside className="article__gauche" aria-label="Informations sur l’article">
             <div className="rail">
               <div className="auteur">
-                <span className="auteur__avatar" aria-hidden>{initiales(a.auteur)}</span>
+                {a.auteurPhoto ? (
+                  <Image className="auteur__avatar auteur__avatar--photo" src={a.auteurPhoto} alt="" width={96} height={96} />
+                ) : (
+                  <span className="auteur__avatar" aria-hidden>{initiales(a.auteur)}</span>
+                )}
                 <div>
                   <span className="rail__libelle">Publié par</span>
                   <strong className="auteur__nom">{a.auteur}</strong>
