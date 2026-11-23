@@ -89,7 +89,7 @@ button { font: inherit; cursor: pointer; }
 .logo {
   font-family: var(--sans);
   font-weight: 800;
-  font-size: clamp(22px, 5.4vw, 30px);
+  font-size: clamp(20px, 5vw, 28px);
   letter-spacing: -0.04em;
   line-height: 1;
   color: var(--encre);
@@ -116,6 +116,13 @@ button { font: inherit; cursor: pointer; }
 .bouton:hover { filter: brightness(.96); }
 .bouton:active { transform: scale(.98); }
 .entete__cta { margin-left: auto; }
+.cta-court { display: none; }
+@media (max-width: 520px) {
+  .entete__barre { gap: 10px; }
+  .entete__cta { padding: 9px 18px; }
+  .cta-long { display: none; }
+  .cta-court { display: inline; }
+}
 
 @media (min-width: 960px) {
   .entete__nav { display: flex; }

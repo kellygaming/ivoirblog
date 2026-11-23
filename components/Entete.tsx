@@ -45,7 +45,8 @@ export function Entete() {
           ))}
         </nav>
         <Link href={site.appel.lien} className="bouton entete__cta">
-          {site.appel.bouton}
+          <span className="cta-long">{site.appel.bouton}</span>
+          <span className="cta-court">Écrire</span>
         </Link>
       </div>
 

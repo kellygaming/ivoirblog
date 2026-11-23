@@ -1,12 +1,12 @@
 /** Toute l'identité du site au même endroit : à personnaliser. */
 export const site = {
-  nom: "Kitablog",
+  nom: "I Speak Politics",
   // Logo bicolore : 1re partie en couleur du texte, 2e en couleur d'accent
-  logo: ["kita", "blog"],
+  logo: ["ispeak", "politics"],
   slogan: "Décrypter les concepts, analyser le pouvoir, éveiller les consciences",
   description:
-    "Science politique accessible : fiches de cours, analyses de l'actualité en Côte d'Ivoire, en Afrique et dans le monde, recherche et tribunes.",
-  url: "https://ivoirblog.vercel.app",
+    "I Speak Politics (Je parle politique) : la science politique à la portée de tous. Fiches de cours, analyses de l'actualité en Côte d'Ivoire, en Afrique et dans le monde, recherche et tribunes.",
+  url: "https://ispeakpolitics.vercel.app",
   // Les quatre espaces du blog = rubriques (ordre d'affichage)
   rubriques: ["Notes d'Amphi", "L'Œil du Politiste", "Politic Lab", "La Tribune"],
   descriptions: {

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
 
-/** Logo bicolore façon « jeune|afrique » : « kita » en couleur du texte, « blog » en accent. */
+/** Logo bicolore façon « jeune|afrique » : « ispeak » en couleur du texte, « politics » en accent. */
 export function Logo() {
   const [debut, fin] = site.logo;
   return (

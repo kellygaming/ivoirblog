@@ -15,7 +15,7 @@ export default function Accueil() {
   return (
     <div className="conteneur">
       <section className="section">
-        <h1 className="section__titre">Actualités</h1>
+        <h1 className="section__titre">Dernières publications</h1>
         <Puces />
         {une ? <CarteUne article={une} /> : <p>Aucun article pour l’instant.</p>}
         <ul className="liste grille-liste">
