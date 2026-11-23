@@ -1,3 +1,5 @@
+Fondé par **Boko Yah Ange Victoire**, *I Speak Politics* part d'un constat simple.
+
 La politique est au cœur du destin de nos sociétés : elle façonne les institutions, oriente les choix publics et conditionne le développement. Pourtant, les outils théoriques et scientifiques pour la comprendre restent trop souvent confinés aux sphères universitaires, loin des citoyens et des jeunes générations qui ont pourtant vocation à transformer leurs pays.
 
 C'est de cette conviction qu'est né *I Speak Politics* (Je parle politique) : une démarche de recherche au service de l'éveil citoyen.

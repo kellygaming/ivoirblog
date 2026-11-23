@@ -6,7 +6,7 @@ rubrique: "La Tribune"
 etiquette: "Édito"
 image: "/images/i-speak-politics.jpg"
 legende: "I Speak Politics : la science politique à la portée de tous."
-auteur: "La fondatrice"
+auteur: "Boko Yah Ange Victoire"
 auteurPhoto: "/images/portrait-fondatrice.jpg"
 une: true
 ---

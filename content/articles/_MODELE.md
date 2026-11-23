@@ -7,7 +7,7 @@ rubrique: "L'Œil du Politiste"   # Notes d'Amphi | L'Œil du Politiste | Politi
 etiquette: "Décryptage"          # facultatif : badge rouge
 image: "/images/ma-photo.jpg"    # facultatif : photo placée dans public/images/
 legende: "Légende de la photo."  # facultatif
-auteur: "Prénom Nom"
+auteur: "Boko Yah Ange Victoire"
 auteurPhoto: "/images/portrait-fondatrice.jpg"  # facultatif : photo ronde à côté du nom
 une: false                       # true = article mis à la une de l'accueil
 ---

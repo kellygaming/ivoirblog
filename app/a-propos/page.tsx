@@ -12,7 +12,7 @@ export default function APropos() {
         <aside>
           <div className="rail">
             <div className="presentation__photo">
-              <Image src="/images/portrait-fondatrice.jpg" alt="La fondatrice d’I Speak Politics au pupitre" fill priority sizes="(max-width: 900px) 100vw, 320px" />
+              <Image src="/images/portrait-fondatrice.jpg" alt="Boko Yah Ange Victoire, fondatrice d’I Speak Politics, au pupitre" fill priority sizes="(max-width: 900px) 100vw, 320px" />
             </div>
           </div>
         </aside>
